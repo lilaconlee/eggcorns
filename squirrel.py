@@ -12,7 +12,7 @@ def getSoup(url):
 
 def main():
     BASE_URL = "http://eggcorns.lascribe.net/browse-eggcorns/"
-    filename = "eggcorns.json"
+    filename = "eggcorn-examples.json"
     entries = {}
 
     bigSoup = getSoup(BASE_URL)
@@ -21,7 +21,7 @@ def main():
         corn = li.text.split(u"»")[1].strip()
         href = li.select("a")[0]['href']
         examples = []
-        
+
         lilSoup = getSoup(href)
         try:
             foo = lilSoup.select('div[class="occurrences"]')[0].select("li")
